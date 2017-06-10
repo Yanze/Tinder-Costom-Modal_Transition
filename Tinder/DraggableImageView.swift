@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol DraggableImageViewDelegate {
-    func imgViewTapped()
-}
 
 extension Int {
     var degreesToRadians: Double { return Double(self) * .pi / 180 }
@@ -26,7 +23,6 @@ class DraggableImageView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     var profileImageOriginalCenter : CGPoint!
-    var delegate: DraggableImageViewDelegate?
     
     var profileImage : UIImage? {
         get { return profileImageView.image}
@@ -75,10 +71,7 @@ class DraggableImageView: UIView {
         }
     }
     
-    
-    @IBAction func imgViewTapped(_ sender: UITapGestureRecognizer) {
-        self.delegate?.imgViewTapped()
-    }
+
     
     
 }

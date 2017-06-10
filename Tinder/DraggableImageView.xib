@@ -24,9 +24,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="304" height="304"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="vBr-6X-1GA" appends="YES" id="vdf-rv-dZr"/>
-                    </connections>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,11 +34,6 @@
             </connections>
             <point key="canvasLocation" x="-248" y="-180"/>
         </view>
-        <tapGestureRecognizer id="vBr-6X-1GA">
-            <connections>
-                <action selector="imgViewTapped:" destination="-1" id="SQR-3g-9Pd"/>
-            </connections>
-        </tapGestureRecognizer>
         <panGestureRecognizer minimumNumberOfTouches="1" id="Qfj-bo-HcL">
             <connections>
                 <action selector="onPanGesture:" destination="-1" id="Ywj-56-267"/>

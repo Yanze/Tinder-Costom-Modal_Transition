@@ -8,16 +8,17 @@
 
 import UIKit
 
-class CardsViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, DraggableImageViewDelegate {
+class CardsViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     var imageView: DraggableImageView!
     var profileImageOriginalCenter: CGPoint!
-    
     var isPresenting: Bool = true
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView = DraggableImageView(frame: CGRect(x:36 , y:150, width:view.bounds.width, height: 304))
-        imageView.delegate = self
+        let xx = UITapGestureRecognizer(target: self, action: #selector(imgViewOnTap))
+        imageView.addGestureRecognizer(xx)
         imageView.profileImage = UIImage(named: "ryan")
         view.addSubview(imageView)
 
@@ -27,7 +28,8 @@ class CardsViewController: UIViewController, UIViewControllerTransitioningDelega
         super.didReceiveMemoryWarning()
     }
 
-    func imgViewTapped() {
+    
+    func imgViewOnTap(sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "profileSegue", sender: self)
     }
     
@@ -38,6 +40,7 @@ class CardsViewController: UIViewController, UIViewControllerTransitioningDelega
             destionationVC.transitioningDelegate = self
         }
     }
+    
     
     //MARK: transition methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
