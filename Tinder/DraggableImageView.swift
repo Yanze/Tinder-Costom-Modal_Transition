@@ -61,10 +61,9 @@ class DraggableImageView: UIView {
             
             contentView.center = CGPoint(x: profileImageOriginalCenter.x + translation.x, y: profileImageOriginalCenter.y)
             
-            let angle = CGFloat(Float(translation.x)  * Float(M_PI) / Float(12.0 * 192.0))
+            let angle = CGFloat(Float(translation.x)  * Float(Double.pi) / Float(12.0 * 192.0))
             contentView.transform = profileImageView.transform.rotated(by: angle)
-            
-            
+  
             print("Gesture changed at: \(profileImageView.center)")
         } else if sender.state == .ended {
             print("Gesture ended at: \(contentView.center)")

@@ -15,6 +15,8 @@
 		A5F9662A1EB19450001D072B /* DraggableImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F966291EB19450001D072B /* DraggableImageView.xib */; };
 		A5F9662C1EB19485001D072B /* DraggableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662B1EB19485001D072B /* DraggableImageView.swift */; };
 		A5F9662E1EB1A296001D072B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662D1EB1A296001D072B /* ProfileViewController.swift */; };
+		E0D96E8E1EEEFB22000823DC /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D96E8C1EEEFB22000823DC /* BaseTransition.swift */; };
+		E0D96E8F1EEEFB22000823DC /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D96E8D1EEEFB22000823DC /* FadeTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A5F966291EB19450001D072B /* DraggableImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggableImageView.xib; sourceTree = "<group>"; };
 		A5F9662B1EB19485001D072B /* DraggableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableImageView.swift; sourceTree = "<group>"; };
 		A5F9662D1EB1A296001D072B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E0D96E8C1EEEFB22000823DC /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		E0D96E8D1EEEFB22000823DC /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				A5F966171EB18E4B001D072B /* AppDelegate.swift */,
+				E0D96E8C1EEEFB22000823DC /* BaseTransition.swift */,
+				E0D96E8D1EEEFB22000823DC /* FadeTransition.swift */,
 				A5F966191EB18E4B001D072B /* CardsViewController.swift */,
 				A5F9661B1EB18E4B001D072B /* Main.storyboard */,
 				A5F9661E1EB18E4B001D072B /* Assets.xcassets */,
@@ -148,8 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5F9661A1EB18E4B001D072B /* CardsViewController.swift in Sources */,
+				E0D96E8E1EEEFB22000823DC /* BaseTransition.swift in Sources */,
 				A5F9662C1EB19485001D072B /* DraggableImageView.swift in Sources */,
 				A5F9662E1EB1A296001D072B /* ProfileViewController.swift in Sources */,
+				E0D96E8F1EEEFB22000823DC /* FadeTransition.swift in Sources */,
 				A5F966181EB18E4B001D072B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +320,7 @@
 				A5F966281EB18E4B001D072B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

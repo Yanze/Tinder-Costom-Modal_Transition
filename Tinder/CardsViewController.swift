@@ -8,17 +8,17 @@
 
 import UIKit
 
-class CardsViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+class CardsViewController: UIViewController {
+    
     var imageView: DraggableImageView!
     var profileImageOriginalCenter: CGPoint!
-    var isPresenting: Bool = true
-
+    var fadeTransition: FadeTransition!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView = DraggableImageView(frame: CGRect(x:36 , y:150, width:view.bounds.width, height: 304))
-        let xx = UITapGestureRecognizer(target: self, action: #selector(imgViewOnTap))
-        imageView.addGestureRecognizer(xx)
+
+        imageView.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(imgViewOnPinch)))
         imageView.profileImage = UIImage(named: "ryan")
         view.addSubview(imageView)
 
@@ -27,61 +27,29 @@ class CardsViewController: UIViewController, UIViewControllerTransitioningDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
     
-    func imgViewOnTap(sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "profileSegue", sender: self)
+
+    func imgViewOnPinch(sender: UIPinchGestureRecognizer) {
+        let image = sender.view as! DraggableImageView
+        performSegue(withIdentifier: "profileSegue", sender: image)
+ 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "profileSegue" {
             let destionationVC = segue.destination as! ProfileViewController
+            let draggableImgView = sender as! DraggableImageView
             destionationVC.modalPresentationStyle = UIModalPresentationStyle.custom
-            destionationVC.transitioningDelegate = self
+            destionationVC.profileImg = draggableImgView.profileImage
+            
+            // create a FadeTransition instance
+            fadeTransition = FadeTransition()
+            destionationVC.transitioningDelegate = fadeTransition
+            
+            // adjust the transition duration
+            fadeTransition.duration = 0.7
+            
         }
-    }
-    
-    
-    //MARK: transition methods
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresenting = true
-        return self
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        isPresenting = false
-        return self
-    }
-    
-    // MARK: methods that actually control the transition
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        // this value is the duration of the animations scheduled in the animationTransition method
-        return 0.4
-    }
-    
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView
-        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
-        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
-        
-        if isPresenting {
-            containerView.addSubview(toViewController.view)
-            toViewController.view.alpha = 0
-            UIView.animate(withDuration: 0.4, animations: { 
-                toViewController.view.alpha = 1
-            }, completion: { (finished:Bool) in
-                transitionContext.completeTransition(true)
-            })
-        }
-        else {
-            UIView.animate(withDuration: 0.4, animations: { 
-                fromViewController.view.alpha = 0
-            }, completion: { (finished:Bool) in
-                transitionContext.completeTransition(true)
-                fromViewController.view.removeFromSuperview()
-            })
-        }
-        
     }
 
 }
