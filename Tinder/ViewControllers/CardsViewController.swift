@@ -18,7 +18,7 @@ class CardsViewController: UIViewController {
         super.viewDidLoad()
         imageView = DraggableImageView(frame: CGRect(x:36 , y:150, width:view.bounds.width, height: 304))
 
-        imageView.addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(imgViewOnPinch)))
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imgViewOnPinch)))
         imageView.profileImage = UIImage(named: "ryan")
         view.addSubview(imageView)
 
@@ -29,7 +29,7 @@ class CardsViewController: UIViewController {
     }
     
 
-    func imgViewOnPinch(sender: UIPinchGestureRecognizer) {
+    func imgViewOnPinch(sender: UITapGestureRecognizer) {
         let image = sender.view as! DraggableImageView
         performSegue(withIdentifier: "profileSegue", sender: image)
  
@@ -41,7 +41,7 @@ class CardsViewController: UIViewController {
             let draggableImgView = sender as! DraggableImageView
             destionationVC.modalPresentationStyle = UIModalPresentationStyle.custom
             destionationVC.profileImg = draggableImgView.profileImage
-            
+   
             // create a FadeTransition instance
             fadeTransition = FadeTransition()
             destionationVC.transitioningDelegate = fadeTransition

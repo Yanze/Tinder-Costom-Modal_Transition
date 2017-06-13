@@ -14,15 +14,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var doneImgView: UIImageView!
     @IBOutlet weak var profileImgView: UIImageView!
     var profileImg: UIImage!
+//    var fadeTransition: FadeTransition!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         doneImgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissViewController)))
         doneImgView.isUserInteractionEnabled = true
-        
         profileImgView.image = profileImg
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +30,11 @@ class ProfileViewController: UIViewController {
     }
     
     func dismissViewController(sender: UITapGestureRecognizer) {
-        dismiss(animated: true)
+        self.dismiss(animated: true, completion: nil)
+//        self.modalPresentationStyle = UIModalPresentationStyle.custom
+//        fadeTransition = FadeTransition()
+//        self.transitioningDelegate = fadeTransition
+//        fadeTransition.duration = 0.7
     }
 
 
