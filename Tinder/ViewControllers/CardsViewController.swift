@@ -17,8 +17,7 @@ class CardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView = DraggableImageView(frame: CGRect(x:36 , y:150, width:view.bounds.width, height: 304))
-
-        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imgViewOnPinch)))
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imgViewOnTap)))
         imageView.profileImage = UIImage(named: "ryan")
         view.addSubview(imageView)
 
@@ -29,7 +28,7 @@ class CardsViewController: UIViewController {
     }
     
 
-    func imgViewOnPinch(sender: UITapGestureRecognizer) {
+    func imgViewOnTap(sender: UITapGestureRecognizer) {
         let image = sender.view as! DraggableImageView
         performSegue(withIdentifier: "profileSegue", sender: image)
  

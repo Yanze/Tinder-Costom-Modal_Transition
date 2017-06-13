@@ -14,7 +14,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var doneImgView: UIImageView!
     @IBOutlet weak var profileImgView: UIImageView!
     var profileImg: UIImage!
-//    var fadeTransition: FadeTransition!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +30,7 @@ class ProfileViewController: UIViewController {
     
     func dismissViewController(sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
-//        self.modalPresentationStyle = UIModalPresentationStyle.custom
-//        fadeTransition = FadeTransition()
-//        self.transitioningDelegate = fadeTransition
-//        fadeTransition.duration = 0.7
+
     }
 
 
